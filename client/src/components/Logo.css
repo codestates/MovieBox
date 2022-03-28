@@ -1,0 +1,13 @@
+.logo {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 280px;
+  z-index: 0;
+  overflow: hidden;
+  background-image: url("../images/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+}

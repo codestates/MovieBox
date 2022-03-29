@@ -14,9 +14,9 @@ return (
         
         <Logo />
         <nav>
-          <a href="#">HOME</a>
-          <a href="#">Singup</a>
-          <a href="#">Login</a>
+          <a href="/">HOME</a>
+          <a href="/signup">Singup</a>
+          <a href="/login">Login</a>
        <div id="indicator"></div>
 </nav>
         

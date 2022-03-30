@@ -1,28 +1,38 @@
 const fs = require('fs');
 const https = require('https');
 const cors = require('cors');
-const cookeParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 
-const router = express.Router();
+const controllers = require('./controllers');
 
-router.get( '/.' , (req, res) =>{
-    res.send(data)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: ['https://localhost:3000'],
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS']
   })
-  router.get( '/movieid' , (req, res) =>{
-    res.send(data)
-  })
-  router.get( '/signup' , (req, res) =>{
-    res.send(data)
-  })
-  router.get( '/login' , (req, res) =>{
-    res.send(data)
-  })
-router.get( '/profile' , (req, res) =>{
-    res.send(data)
-  })
-  
+);
+app.use(cookieParser());
+app.get('/',);
+app.post('/signup',);
+app.post('/login',);
+app.get('/profile', )
 
+let server;
+server = https
+  .createServer(
+    {
+      key: fs.readFileSync(__dirname + '/key.pem', 'utf-8'),
+      cert: fs.readFileSync(__dirname + '/cert.pem', 'utf-8'),
+    },
+    app.use('/', (req, res) => {
+      res.send('Congrats! You made https server now :)');
+    })
+  )
+  .listen(3000);
 
 module.exports = server;

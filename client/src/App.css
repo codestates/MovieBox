@@ -125,6 +125,33 @@ nav a:nth-child(3):hover ~ #indicator {
   background: linear-gradient(130deg, purple, palevioletred);
 }
 
+.search_modal {
+  dispaly: none;
+  position: fixed;
+  top: 1;
+  left: 29cm;
+  width: 20%;
+  height: 20%;
+  background-color: blue;
+}
+
+.search_modal_overlay {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  width: 20%;
+  height: 20%;
+  position: relative;
+}
+
+.search_modal_content {
+  background-color: red;
+  padding: 20px 100px;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
 .signup {
   text-align: center;
   margin: 10px;
@@ -154,12 +181,12 @@ nav a:nth-child(3):hover ~ #indicator {
 }
 .signup input:focus::-webkit-input-placeholder {
   text-align: center;
-  color:transparent;
+  color: transparent;
 }
 .signup input::-ms-input-placeholder {
   text-align: center;
 }
 .signup input:focus::-ms-input-placeholder {
   text-align: center;
-  color:transparent;
+  color: transparent;
 }

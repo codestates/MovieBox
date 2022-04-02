@@ -126,7 +126,6 @@ nav a:nth-child(3):hover ~ #indicator {
 }
 
 .search_modal {
-  dispaly: none;
   position: fixed;
   top: 1;
   left: 29cm;
@@ -189,4 +188,44 @@ nav a:nth-child(3):hover ~ #indicator {
 .signup input:focus::-ms-input-placeholder {
   text-align: center;
   color: transparent;
+}
+
+
+.login {
+  text-align: center;
+  margin: 10px;
+}
+
+.login div {
+  position: relative;
+  text-align: center;
+  margin: 50px;
+}
+.login button {
+  width: 400px;
+  height: 35px;
+  color: white;
+  background-color: red;
+}
+
+.login input {
+  position: relative;
+  width: 400px;
+  height: 35px;
+  text-align: center;
+}
+
+.login input::-webkit-input-placeholder {
+  text-align: center;
+}
+.login input:focus::-webkit-input-placeholder {
+  text-align: center;
+  color:transparent;
+}
+.login input::-ms-input-placeholder {
+  text-align: center;
+}
+.login input:focus::-ms-input-placeholder {
+  text-align: center;
+  color:transparent;
 }

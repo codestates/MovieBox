@@ -18,8 +18,9 @@ app.use(
 );
 app.use(cookieParser());
 app.get('/',);
-app.post('/signup',);
-app.post('/login',);
+app.post('/signup', controllers.signup);
+app.post('/login', controllers.login);
+app.get('/auth', controllers.auth);
 app.get('/profile', )
 
 let server;
@@ -29,10 +30,8 @@ server = https
       key: fs.readFileSync(__dirname + '/key.pem', 'utf-8'),
       cert: fs.readFileSync(__dirname + '/cert.pem', 'utf-8'),
     },
-    app.use('/', (req, res) => {
-      res.send('Congrats! You made https server now :)');
-    })
+    app
   )
-  .listen(3000);
+  .listen(4000);
 
 module.exports = server;

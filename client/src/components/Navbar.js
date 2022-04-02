@@ -9,7 +9,6 @@ import SearchModal from './SearchModal';
 
 const Navbar = () => {
     const outside = useRef()
-    console.log(outside);
     
     const [searchOpen, setSearchOpen] = useState(false);
     const openSearch = () => setSearchOpen(true);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../App.css'
 import axios from 'axios';
 
+
 axios.defaults.withCredentials = true;
 
 export default function Login ({ handleResposeSuccess }) {
@@ -33,9 +34,10 @@ export default function Login ({ handleResposeSuccess }) {
   }
 
   return (
+
     <div className='login'>
       <body>
-        <h2>Login</h2>
+        <h1 className="title">Login</h1>
         <div>
           <input type="email" onChange={handleInputValue('email')} placeholder="이메일"></input>
         </div>
@@ -45,11 +47,11 @@ export default function Login ({ handleResposeSuccess }) {
         <div>
           <button onClick={handleClickEvent}>login</button>
         </div>
-        <div>{errormessage}</div>
-        <div>{errormessage2}</div>
-        <div>OR</div>
-        <div onClick={handleClickEvent}>sign in Google</div>
-        <div onClick={handleClickEvent}>sign in Naver</div>
+        <div className="errormessage">{errormessage}</div>
+        <div className="errormessage">{errormessage2}</div>
+        <div className="login_font_white">OR</div>
+        <div onClick={handleClickEvent} className="login_font_white">sign in Google</div>
+        <div onClick={handleClickEvent} className="login_font_white">sign in Naver</div>
       </body>
     </div>
   )

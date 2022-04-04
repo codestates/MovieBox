@@ -54,7 +54,7 @@ export default function Signup () {
   return (
     <div className='signup'>
       <body>
-        <h2>Sign Up</h2>
+        <h1 className="title">Sign Up</h1>
         <div>
           <input type="email" onChange={handleInputValue('email')} placeholder="이메일"></input>
         </div>
@@ -73,9 +73,9 @@ export default function Signup () {
         <div>
           <button onClick={handleClickSignup}>signup</button>
         </div>
-        <div>{errormessage}</div>
-        <div>{errormessage2}</div>
-        <div>이미 아이디가 있으신가요? <a href="/login">login</a></div>
+        <div className="errormessage">{errormessage}</div>
+        <div className="errormessage">{errormessage2}</div>
+        <div className="singup_font_white">이미 아이디가 있으신가요? <a href="/login">login</a></div>
       </body>
     </div>
   )

@@ -8,13 +8,13 @@ import SearchModal from './SearchModal';
 
 
 const Navbar = () => {
-    const outside = useRef()
+    const outside = useRef();
     
     const [searchOpen, setSearchOpen] = useState(false);
     const openSearch = () => setSearchOpen(true);
 
     const handleCloseModal = e => {
-        if (searchOpen && (!outside.current || !outside.current.contains(e.target))) setSearchOpen(false);
+        if (searchOpen &&  !outside.current.contains(e.target)) setSearchOpen(false);
       };
     
     useEffect(() => {
@@ -23,7 +23,7 @@ const Navbar = () => {
             window.removeEventListener("click", handleCloseModal);
         } 
     });
-
+ 
 return (
   <div className="navbar">
     <span className="logo"><Logo /></span>
@@ -36,11 +36,14 @@ return (
         </nav>
         {
             searchOpen &&
-            <SearchModal ref={outside}/> 
+            <SearchModal ref={outside} /> 
         }
     </span>
+    
     {/* <div id="indicator"></div> */}
+    
   </div>
+  
 
  )
 };

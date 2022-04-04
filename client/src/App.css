@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* background-color: black; */
+  background-color: black;
 }
 
 .logo {
@@ -126,53 +126,80 @@ nav a:nth-child(3):hover ~ #indicator {
 }
 
 .search_modal {
-  position: fixed;
-  top: 1;
-  left: 29cm;
-  width: 20%;
-  height: 20%;
-  background-color: blue;
-}
-
-.search_modal_overlay {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-  width: 20%;
-  height: 20%;
-  position: relative;
-}
-
-.search_modal_content {
-  background-color: red;
-  padding: 20px 100px;
-  text-align: center;
-  position: relative;
+  width: 100%;
+  margin: 10px;
+  max-width: 400px;
+  background-color: white;
   border-radius: 10px;
-  width: 30%;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.search_head {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.search_head_title {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+
+.search_body {
+  width: 100%;
+  background-color: #ffffff;
+  color: black;
+}
+
+.search_body_contentbox {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 38px;
+  font-style: normal;
+  color: white;
 }
 
 .signup {
   text-align: center;
-  margin: 10px;
+  background-color: black;
+  margin: 10% auto;
 }
 
 .signup div {
   position: relative;
   text-align: center;
-  margin: 50px;
+  margin: 15px;
 }
 .signup button {
-  width: 400px;
-  height: 35px;
+  width: 40%;
+  height: 45px;
   color: white;
   background-color: red;
+  border-radius: 5px;
 }
 
 .signup input {
-  position: relative;
-  width: 400px;
-  height: 35px;
-  text-align: center;
+  border: 1px solid rgb(211, 211, 211);
+  width: 40%;
+  height: 45px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  background-color: rgb(250, 250, 250);
 }
 
 .signup input::-webkit-input-placeholder {
@@ -190,42 +217,90 @@ nav a:nth-child(3):hover ~ #indicator {
   color: transparent;
 }
 
+.singup_font_white {
+  color: white;
+}
+
+.errormessage {
+  color: red;
+}
 
 .login {
   text-align: center;
-  margin: 10px;
+  background-color: black;
+  margin: 10% auto;
 }
 
 .login div {
   position: relative;
   text-align: center;
-  margin: 50px;
+  margin: 15px;
 }
+
 .login button {
-  width: 400px;
-  height: 35px;
+  width: 40%;
+  height: 45px;
   color: white;
   background-color: red;
+  border-radius: 5px;
 }
 
 .login input {
-  position: relative;
-  width: 400px;
-  height: 35px;
-  text-align: center;
+  border: 1px solid rgb(211, 211, 211);
+  width: 40%;
+  height: 45px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  background-color: rgb(250, 250, 250);
 }
 
 .login input::-webkit-input-placeholder {
   text-align: center;
 }
+
 .login input:focus::-webkit-input-placeholder {
   text-align: center;
-  color:transparent;
+  color: transparent;
 }
+
 .login input::-ms-input-placeholder {
   text-align: center;
 }
-.login input:focus::-ms-input-placeholder {
-  text-align: center;
-  color:transparent;
+
+.login_font_white {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .signup {
+    width: 100%;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+  .nav {
+    width: 100%;
+  }
+  .logo {
+    width: 100%;
+  }
+
+  .home_button {
+    width: 100%;
+  }
+
+  .search_modal {
+    width: 100%;
+  }
+  .search_head_title {
+    width: 100%;
+  }
+  .search_body {
+    width: 100%;
+  }
+  .search_body_contentbox {
+    width: 100%;
+  }
 }

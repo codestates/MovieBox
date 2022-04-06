@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Switch, Route, useHistory} from 'react-router-dom'
+import Pagination from "react-js-pagination"
 import './App.css';
 import Navbar from './components/Navbar'
 import Login from './pages/Login'
@@ -11,6 +12,10 @@ import Userupdate from './pages/Userupdate'
 import axios from 'axios'
 
 export default function App() {
+  const [page, setPage] = useState(1)
+  const [selectgenre, setSelectgenre] = useState('0')
+  const [movieFilter, setMovieFilter] = useState('');
+  const [movieapi, setMovieapi] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
   const history = useHistory();
@@ -25,9 +30,7 @@ export default function App() {
     isAuthenticated();
     history.push("/")
   };
-  console.log(userinfo)
-  console.log(isLogin)
-
+  console.log(page)
   const handleLogout = () => {
     axios.post('https://localhost:4000/signout').then((res) => {
       setUserinfo(null);
@@ -36,16 +39,59 @@ export default function App() {
     });
   };
 
+  const handleSearch = async () => {
+
+    const searchKeyword = movieFilter.searchKeyword;
+    const searchGenre = selectgenre
+    console.log(searchGenre)
+    try {
+      if (searchKeyword === "") {
+        setMovieapi([])
+        setMovieFilter("");
+        setSelectgenre('')
+      } 
+      else {
+        const data = await axios.get('https://localhost:4000/api/search', 
+        {
+          params: {
+            query: [searchKeyword, searchGenre, page]
+          }
+        })
+        setMovieapi(data.data.items)
+      }
+    } catch(error) {
+      console.log('error')
+    }
+  }
+  useEffect(() => {
+    handleSearch()
+  }, [selectgenre])
+
+  useEffect(() => {
+    handleSearch()
+  }, [page])
+
   useEffect(() => {
     isAuthenticated();
-  }, []);
+  }, []); 
   
   return (
     <div>
-      <Navbar />
+      <Navbar 
+        movieFilter={movieFilter}
+        setMovieFilter={setMovieFilter}
+        handleSearch={handleSearch}
+        movieapi={movieapi}
+      />
       <Switch>
         <Route exact path="/">
-          <Main></Main>
+          <Main
+            movieapi={movieapi}
+            setSelectgenre={setSelectgenre}
+            selectgenre={selectgenre}
+            setPage={setPage}
+            page={page}
+          ></Main>
         </Route>
         <Route path="/login">
           <Login

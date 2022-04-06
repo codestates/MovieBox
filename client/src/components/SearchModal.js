@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../App.css"
 
 
-const SearchModal=() => {
-    
+const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
+    const [searchInput, setSearchInput] = useState('')
+
+    const handleInputValue = (key) => (e) => {
+        setMovieFilter({ ...movieFilter, [key]: e.target.value });
+    }
+
+    const onKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            buttonClick()
+        }
+    }
+
+    const buttonClick = () => {
+        handleSearch()
+    }
+
     return (
 
         <div className="search_modal">
@@ -14,8 +29,10 @@ const SearchModal=() => {
                 </div>
             </div> */}
             <div className="search_body">
-                <input className="search_body_contentbox">
-                
+                <input type='searchKeyword' className="search_body_contentbox"
+                    onChange={handleInputValue('searchKeyword')}
+                    onKeyPress={onKeyPress}
+                >
                 </input>
             </div>
             

@@ -7,22 +7,10 @@ import SearchModal from './SearchModal';
 
 
 
-const Navbar = () => {
-    const outside = useRef();
+const Navbar = ({ movieFilter, setMovieFilter, handleSearch }) => {
     
     const [searchOpen, setSearchOpen] = useState(false);
-    const openSearch = () => setSearchOpen(true);
-
-    const handleCloseModal = e => {
-        if (searchOpen &&  !outside.current.contains(e.target)) setSearchOpen(false);
-      };
-    
-    useEffect(() => {
-        window.addEventListener("click", handleCloseModal);
-        return () => {
-            window.removeEventListener("click", handleCloseModal);
-        } 
-    });
+    const openSearch = () => setSearchOpen(!searchOpen);
  
 return (
   <div className="navbar">
@@ -36,7 +24,11 @@ return (
         </nav>
         {
             searchOpen &&
-            <SearchModal ref={outside} /> 
+            <SearchModal
+                movieFilter={movieFilter}
+                setMovieFilter={setMovieFilter}
+                handleSearch={handleSearch}
+            /> 
         }
     </span>
     

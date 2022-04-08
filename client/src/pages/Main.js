@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import Pagination from "react-js-pagination"
 import MovieModal from '../components/MovieModal'
+import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
 import '../App.css'
 
@@ -78,14 +79,7 @@ const Main = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, us
         </span>
       </div>
       <div>
-      <iframe
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/v_YlY1xzsW8" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
+      <MovieTrailer />
       </div>
       <React.Fragment>
         <div>

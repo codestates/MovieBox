@@ -301,15 +301,7 @@ nav a:nth-child(3):hover ~ #indicator {
     width: 100%;
   }
   .search_body_contentbox {
-    transition: width 0.35s linear;
-    /* width: 100%; */
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 20px;
-    width: 150px;
-    background-color: #dddddd;
+    width: 100%;
   }
 }
 
@@ -325,59 +317,141 @@ nav a:nth-child(3):hover ~ #indicator {
   color: white;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
+.pagination { 
+  display: flex; 
+  justify-content: center; 
+  margin-top: 15px; 
+} 
 
-ul {
-  list-style: none;
-  padding: 0;
-}
+ul { 
+  list-style: none; 
+  padding: 0; 
+} 
 
 ul.pagination li {
-  display: inline-block;
+  display: inline-block; 
+  width: 30px; 
+  height: 30px; 
+  border: 1px solid #e2e2e2; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-size: 1rem; 
+} 
+
+ul.pagination li:first-child { 
+  border-radius: 5px 0 0 5px; 
+} 
+
+ul.pagination li:last-child { 
+  border-radius: 0 5px 5px 0; 
+} 
+
+ul.pagination li a { 
+  text-decoration: none; 
+  color: #337ab7; 
+  font-size: 1rem; 
+} 
+
+ul.pagination li.active a { 
+  color: white; 
+} 
+
+ul.pagination li.active { 
+  background-color: #337ab7; 
+} 
+
+ul.pagination li a:hover, ul.pagination li a.active { 
+  color: blue; 
+} 
+
+.page-selection { 
+  width: 48px; 
+  height: 30px; 
+  color: #337ab7; 
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+.modal > section {
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+.modal > section > header {
+  position: relative;
+  padding: 16px 64px 16px 16px;
+  background-color: #f1f1f1;
+  font-weight: 700;
+}
+.modal > section > header button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
   width: 30px;
-  height: 30px;
-  border: 1px solid #e2e2e2;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background-color: transparent;
+}
+.modal > section > main {
+  padding: 16px;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+}
+.modal > section > footer {
+  padding: 12px 16px;
+  text-align: right;
+}
+.modal > section > footer button {
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #6c757d;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.modal.openModal {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 1rem;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-bg-show 0.3s;
 }
-
-ul.pagination li:first-child {
-  border-radius: 5px 0 0 5px;
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
 }
-
-ul.pagination li:last-child {
-  border-radius: 0 5px 5px 0;
-}
-
-ul.pagination li a {
-  text-decoration: none;
-  color: #337ab7;
-  font-size: 1rem;
-}
-
-ul.pagination li.active a {
-  color: white;
-}
-
-ul.pagination li.active {
-  background-color: #337ab7;
-}
-
-ul.pagination li a:hover,
-ul.pagination li a.active {
-  color: blue;
-}
-
-.page-selection {
-  width: 48px;
-  height: 30px;
-  color: #337ab7;
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .video {

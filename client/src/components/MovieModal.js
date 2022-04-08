@@ -45,7 +45,6 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
 
           {getComment.map(el => <div>
             <div>{el.updatedAt}</div>
-            <div>{el.User.nickname}</div>
             <div>{el.content}</div>
             </div>)}
           <div>

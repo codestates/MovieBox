@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 const axios = require('axios')
+const { sequelize } = require("./models");
 
 const controllers = require('./controllers');
 
@@ -23,6 +24,8 @@ app.get('/',);
 app.post('/signup', controllers.signup);
 app.post('/login', controllers.login);
 app.get('/auth', controllers.auth);
+app.post('/upload', controllers.upload)
+app.get('/content', controllers.content)
 app.get('/profile', )
 
 app.get('/api/search', (req, res) => {
@@ -65,13 +68,14 @@ app.get('/api/search', (req, res) => {
           display: 20
         },
         headers: {
-          'X-Naver-Client-Id': "1qHLWqHAJlUZxyq3bEkr",
-          'X-Naver-Client-Secret': "MGY8KwKGck"
+          'X-Naver-Client-Id': process.env.NAVER_API_ID,
+          'X-Naver-Client-Secret': process.env.NAVER_API_SECRET
         }
       }
     )
     .then((response) => {
       const { data } = response;
+      console.log(data)
       res.send(data)
     })
   }

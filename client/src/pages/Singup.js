@@ -36,7 +36,7 @@ export default function Signup () {
   }
   const handleClickSignup = () => {
     validate()
-    if (!errormessage) {
+    if (!(userinfo.email==="") && !(userinfo.name==="") && !(userinfo.password==="") && !(userinfo.confirmPassword==="") && !(userinfo.nickname==="")) {
       axios.post('https://localhost:4000/signup', {
         email: userinfo.email,
         password: userinfo.password,

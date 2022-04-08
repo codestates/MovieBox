@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {Switch, Route, useHistory} from 'react-router-dom'
-import Pagination from "react-js-pagination"
 import './App.css';
 import Navbar from './components/Navbar'
 import Login from './pages/Login'
@@ -16,21 +15,40 @@ export default function App() {
   const [selectgenre, setSelectgenre] = useState('0')
   const [movieFilter, setMovieFilter] = useState('');
   const [movieapi, setMovieapi] = useState('');
-  const [isLogin, setIsLogin] = useState(false);
-  const [userinfo, setUserinfo] = useState(null);
+  const [isLogin, setIsLogin] = useState(Boolean(window.sessionStorage.getItem('id')));
+  const [userinfo, setUserinfo] = useState({
+    id: window.sessionStorage.getItem('id'),
+    email: window.sessionStorage.getItem('email'),
+    name: window.sessionStorage.getItem('name'),
+    nickname: window.sessionStorage.getItem('nickname')
+  });
+  const [comment, setComment] = useState({
+    content: '',
+    movieId: '',
+    userId: ''
+  })
   const history = useHistory();
   const isAuthenticated = () => {
     axios.get('https://localhost:4000/auth')
     .then(res => {
-      setUserinfo(res.data.data.userinfo)
+      window.sessionStorage.setItem('id', res.data.data.userinfo.id)
+      window.sessionStorage.setItem('email', res.data.data.userinfo.email)
+      window.sessionStorage.setItem('name', res.data.data.userinfo.name)
+      window.sessionStorage.setItem('nickname', res.data.data.userinfo.nickname)
+      setUserinfo({
+        id: window.sessionStorage.getItem('id'),
+        email: window.sessionStorage.getItem('email'),
+        name: window.sessionStorage.getItem('name'),
+        nickname: window.sessionStorage.getItem('nickname')
+      })
     })
-    setIsLogin(true)
   };
+  
   const handleResponseSuccess = (res) => {
     isAuthenticated();
     history.push("/")
   };
-  console.log(page)
+
   const handleLogout = () => {
     axios.post('https://localhost:4000/signout').then((res) => {
       setUserinfo(null);
@@ -43,7 +61,6 @@ export default function App() {
 
     const searchKeyword = movieFilter.searchKeyword;
     const searchGenre = selectgenre
-    console.log(searchGenre)
     try {
       if (searchKeyword === "") {
         setMovieapi([])
@@ -57,7 +74,11 @@ export default function App() {
             query: [searchKeyword, searchGenre, page]
           }
         })
-        setMovieapi(data.data.items)
+        const rating = data.data.items
+        const sortData = rating.sort((a, b) => {
+          return b.userRating - a.userRating
+        })
+        setMovieapi(sortData)
       }
     } catch(error) {
       console.log('error')
@@ -91,6 +112,9 @@ export default function App() {
             selectgenre={selectgenre}
             setPage={setPage}
             page={page}
+            comment={comment}
+            setComment={setComment}
+            userinfo={userinfo}
           ></Main>
         </Route>
         <Route path="/login">

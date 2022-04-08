@@ -10,6 +10,7 @@ const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
         setMovieFilter({ ...movieFilter, [key]: e.target.value });
     }
 
+    // Enter를 눌렀을 때 페이지네이션, 장르가 초기화되야함.
     const onKeyPress = (e) => {
         if (e.key === 'Enter') {
             buttonClick()
@@ -21,13 +22,7 @@ const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
     }
 
     return (
-
         <div className="search_modal">
-            {/* <div className="search_head">
-                <div className="search_head_title">
-                영화를 검색해주세요.
-                </div>
-            </div> */}
             <div className="search_body">
                 <input type='searchKeyword' className="search_body_contentbox"
                     onChange={handleInputValue('searchKeyword')}
@@ -35,9 +30,6 @@ const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
                 >
                 </input>
             </div>
-            
-            
-            
         </div>
     
     )

@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
     const accessTokenData = await isAuthorized(authorization);
     const userdata = await User.findOne({ where : {email: email, password: accessTokenData.password}})
     const userinfo = {
+      id : userdata.dataValues.id,
       email : userdata.dataValues.email,
       name : userdata.dataValues.name,
       nickname : userdata.dataValues.nickname

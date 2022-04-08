@@ -31,9 +31,6 @@ return (
             /> 
         }
     </span>
-    
-    {/* <div id="indicator"></div> */}
-    
   </div>
   
 

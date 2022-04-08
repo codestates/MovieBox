@@ -103,6 +103,7 @@ export default function App() {
         setMovieFilter={setMovieFilter}
         handleSearch={handleSearch}
         movieapi={movieapi}
+        isLogin={isLogin}
       />
       <Switch>
         <Route exact path="/">

@@ -1,0 +1,249 @@
+{
+    "lastBuildDate": "Fri, 08 Apr 2022 13:42:54 +0900",
+    "total": 11,
+    "start": 1,
+    "display": 11,
+    "items": [
+        {
+            "title": "<b>앰뷸런스</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=214553",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2145/214553_P01_104032.jpg",
+            "subtitle": "Ambulance",
+            "pubDate": "2022",
+            "director": "마이클 베이|",
+            "actor": "제이크 질렌할|야히아 압둘 마틴 2세|에이사 곤잘레스|",
+            "userRating": "7.52"
+        },
+        {
+            "title": "<b>불도저에 탄 소녀</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=201701",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2017/201701_P19_181252.jpg",
+            "subtitle": "The Girl on a Bulldozer",
+            "pubDate": "2021",
+            "director": "박이웅|",
+            "actor": "김혜윤|박혁권|오만석|예성|박시우|",
+            "userRating": "8.57"
+        },
+        {
+            "title": "<b>약속의</b> 네버랜드",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=201719",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2017/201719_P00_164153.jpg",
+            "subtitle": "The Promised Neverland",
+            "pubDate": "2020",
+            "director": "히라카와 유이치로|",
+            "actor": "하마베 미나미|죠 카이리|이타가키 리히토|",
+            "userRating": "7.00"
+        },
+        {
+            "title": "<b>나의 집은</b> 어디인가",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=194857",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1948/194857_P03_175014.jpeg",
+            "subtitle": "Flee",
+            "pubDate": "2021",
+            "director": "요나스 포헤르 라스무센|",
+            "actor": "",
+            "userRating": "8.71"
+        },
+        {
+            "title": "<b>천국에서</b> 무덤까지",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=171460",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1714/171460_P00_155214.jpg",
+            "subtitle": "All Creatures Here Below",
+            "pubDate": "2018",
+            "director": "콜린 시플리|",
+            "actor": "카렌 길런|제니퍼 모리슨|데이빗 다스트말치안|",
+            "userRating": "4.00"
+        },
+        {
+            "title": "<b>수퍼 소닉2</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=212095",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2120/212095_P25_141255.jpg",
+            "subtitle": "Sonic the Hedgehog <b>2</b>",
+            "pubDate": "2022",
+            "director": "제프 파울러|",
+            "actor": "제임스 마스던|짐 캐리|벤 슈와츠|이드리스 엘바|티카 섬터|콜린 오슐그네시|",
+            "userRating": "8.29"
+        },
+        {
+            "title": "<b>스텔라</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=189137",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1891/189137_P25_102318.jpg",
+            "subtitle": "Stellar",
+            "pubDate": "2021",
+            "director": "권수경|",
+            "actor": "손호준|이규형|허성태|",
+            "userRating": "7.60"
+        },
+        {
+            "title": "<b>루이스 웨인</b>: 사랑을 그린 고양이 화가",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=193961",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1939/193961_P31_113846.jpg",
+            "subtitle": "The Electrical Life of Louis Wain",
+            "pubDate": "2020",
+            "director": "윌 샤프|",
+            "actor": "베네딕트 컴버배치|클레어 포이|",
+            "userRating": "8.09"
+        },
+        {
+            "title": "<b>패러렐</b> 마더스",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=207366",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2073/207366_P12_141924.jpg",
+            "subtitle": "Madres paralelas",
+            "pubDate": "2021",
+            "director": "페드로 알모도바르|",
+            "actor": "페넬로페 크루즈|밀레나 스밋|로시 드 팔마|",
+            "userRating": "7.70"
+        },
+        {
+            "title": "<b>극장판 시그널</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=208844",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2088/208844_P12_140211.jpg",
+            "subtitle": "SIGNAL The Movie Cold Case Investigation Unit",
+            "pubDate": "2021",
+            "director": "하시모토 하지메|",
+            "actor": "사카구치 켄타로|키타무라 카즈키|키치세 미치코|",
+            "userRating": "5.75"
+        },
+        {
+            "title": "<b>재춘언니</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=198475",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1984/198475_P21_111912.jpg",
+            "subtitle": "Sister J",
+            "pubDate": "2020",
+            "director": "이수정|",
+            "actor": "",
+            "userRating": "8.12"
+        },
+        {
+            "title": "<b>곡녀</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=168125",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1681/168125_P12_175153.jpg",
+            "subtitle": "",
+            "pubDate": "2017",
+            "director": "정인철|",
+            "actor": "정인철|",
+            "userRating": "10.00"
+        },
+        {
+            "title": "<b>배니싱: 미제</b>사건",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=209859",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2098/209859_P32_160648.jpg",
+            "subtitle": "Vanishing",
+            "pubDate": "2022",
+            "director": "드니 데르쿠르|",
+            "actor": "유연석|올가 쿠릴렌코|예지원|",
+            "userRating": "4.39"
+        },
+        {
+            "title": "<b>드라이</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=203618",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2036/203618_P11_103502.jpg",
+            "subtitle": "The Dry",
+            "pubDate": "2020",
+            "director": "로버트 코놀리|",
+            "actor": "에릭 바나|제네비에브 오렐리|키어 오도넬|존 폴슨|",
+            "userRating": "7.31"
+        },
+        {
+            "title": "<b>B컷</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=214569",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2145/214569_P10_164144.jpg",
+            "subtitle": "B Cut",
+            "pubDate": "2022",
+            "director": "김진영|",
+            "actor": "김동완|전세현|김병옥|최재환|",
+            "userRating": "5.09"
+        },
+        {
+            "title": "<b>하로동선</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=213583",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2135/213583_P16_101810.jpg",
+            "subtitle": "",
+            "pubDate": "2022",
+            "director": "김시우|",
+            "actor": "서진원|나혜진|황석정|",
+            "userRating": "7.88"
+        },
+        {
+            "title": "<b>사랑 후의 두 여자</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=196488",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1964/196488_P21_105010.jpg",
+            "subtitle": "After Love",
+            "pubDate": "2020",
+            "director": "알림 칸|",
+            "actor": "조안나 스캔런|나탈리 리차드|",
+            "userRating": "7.50"
+        },
+        {
+            "title": "<b>뱅드림</b>! 팝핀' 드림!",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=214910",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2149/214910_P00_164634.jpg",
+            "subtitle": "BanG Dream! Poppin' Dream!",
+            "pubDate": "2022",
+            "director": "코다이 카키모토|",
+            "actor": "아이미|오오츠카 사에|니시모토 리미|오오하시 아야카|이토 아야사|",
+            "userRating": "8.60"
+        },
+        {
+            "title": "<b>킹 리차드</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=193790",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1937/193790_P01_152741.jpg",
+            "subtitle": "King Richard",
+            "pubDate": "2022",
+            "director": "레이날도 마르쿠스 그린|",
+            "actor": "윌 스미스|언자누 엘리스|사니야 시드니|데미 싱글턴|",
+            "userRating": "7.54"
+        },
+        {
+            "title": "<b>어거스트 버진</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=186864",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1868/186864_P11_163958.jpg",
+            "subtitle": "The August Virgin",
+            "pubDate": "2019",
+            "director": "호나스 트루에바|",
+            "actor": "잇사소 아라나|이자벨 스토펠|",
+            "userRating": "7.80"
+        },
+        {
+            "title": "<b>벨파스트</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=207941",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2079/207941_P01_110842.jpg",
+            "subtitle": "Belfast",
+            "pubDate": "2021",
+            "director": "케네스 브래너|",
+            "actor": "주드 힐|케이트리오나 발피|주디 덴치|제이미 도넌|시아란 힌즈|",
+            "userRating": "8.41"
+        },
+        {
+            "title": "<b>뜨거운 피</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=183862",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1838/183862_P52_134645.jpg",
+            "subtitle": "Hot Blooded",
+            "pubDate": "2020",
+            "director": "천명관|",
+            "actor": "정우|김갑수|",
+            "userRating": "7.47"
+        },
+        {
+            "title": "<b>리디밍 러브</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=214574",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/2145/214574_P12_173735.jpg",
+            "subtitle": "Redeeming Love",
+            "pubDate": "2022",
+            "director": "D.J. 카루소|",
+            "actor": "팜케 얀센|아비게일 코웬|톰 루이스|",
+            "userRating": "7.56"
+        },
+        {
+            "title": "<b>고양이들의 아파트</b>",
+            "link": "https://movie.naver.com/movie/bi/mi/basic.nhn?code=197068",
+            "image": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1970/197068_P21_161306.jpg",
+            "subtitle": "Cats' Apartment",
+            "pubDate": "2020",
+            "director": "정재은|",
+            "actor": "김포도|이인규|김수만|",
+            "userRating": "7.93"
+        }
+     
+    ]
+}

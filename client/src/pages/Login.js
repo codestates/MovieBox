@@ -5,7 +5,7 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export default function Login ({ handleResposeSuccess }) {
+export default function Login ({ handleResposeSuccess, setIsLogin }) {
   const [userinfo, setUserinfo] = useState({
     email: '',
     password: '',
@@ -28,6 +28,7 @@ export default function Login ({ handleResposeSuccess }) {
       })
       .then(res => {
         handleResposeSuccess(res.data)
+        setIsLogin(true)
       })
       .catch(error => setErrormessage2('비밀번호가 일치하지 않습니다'))
     }

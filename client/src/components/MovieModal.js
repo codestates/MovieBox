@@ -13,7 +13,7 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
       userId: userinfo.id
     })
   }
-
+  // console.log(getComment)
   const handleUploadComment = () => {
     if (userinfo.id) {
       axios.post('https://localhost:4000/upload', {
@@ -24,6 +24,7 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
     } else {
       console.log('로그인이 필요합니다')
     }
+    console.log(userinfo)
   }
 
   return (
@@ -45,6 +46,7 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
 
           {getComment.map(el => <div>
             <div>{el.updatedAt}</div>
+            <div>{el.User.nickname}</div>
             <div>{el.content}</div>
             </div>)}
           <div>

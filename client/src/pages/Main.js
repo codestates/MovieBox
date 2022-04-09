@@ -3,6 +3,9 @@ import Pagination from "react-js-pagination"
 import MovieModal from '../components/MovieModal'
 import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
+import jsonData from '../components/item.json'
+import MovieCard from '../components/MovieCard'
+import { Row, Col } from 'antd';
 import '../App.css'
 
 const Main = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, userinfo }) => {
@@ -82,6 +85,17 @@ const Main = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, us
       <MovieTrailer />
       </div>
       <React.Fragment>
+      <div>
+      <Row>
+          {jsonData.items.map((item) => {
+            return (
+              <Col xs={24} sm={12} md={6} lg={4} xl={4}>
+                <MovieCard item={item}></MovieCard>;
+              </Col>
+            );
+          })}
+        </Row>
+        </div>
         <div>
           {movieapi ? movieapi.map(el => <span onClick={() => handleMovieData(el)}>
             {/* <span className="movieTitle">{el.title.replace(/<b>/gi,"").replace(/<\/b>/gi,"")}</span> */}

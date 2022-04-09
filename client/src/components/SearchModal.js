@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import "../App.css"
 
 
 const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
     const [searchInput, setSearchInput] = useState('')
-
+    const history = useHistory();
     const handleInputValue = (key) => (e) => {
         setMovieFilter({ ...movieFilter, [key]: e.target.value });
     }
@@ -19,6 +19,7 @@ const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
 
     const buttonClick = () => {
         handleSearch()
+        history.push('/search')
     }
 
     return (

@@ -12,15 +12,15 @@ import axios from 'axios'
 
 export default function App() {
   const [page, setPage] = useState(1)
+  const [isLogin, setIsLogin] = useState(Boolean(window.sessionStorage.getItem('id')));
   const [selectgenre, setSelectgenre] = useState('0')
   const [movieFilter, setMovieFilter] = useState('');
   const [movieapi, setMovieapi] = useState('');
-  const [isLogin, setIsLogin] = useState(Boolean(window.sessionStorage.getItem('id')));
   const [userinfo, setUserinfo] = useState({
-    id: window.sessionStorage.getItem('id'),
-    email: window.sessionStorage.getItem('email'),
-    name: window.sessionStorage.getItem('name'),
-    nickname: window.sessionStorage.getItem('nickname')
+    id: '',
+    email: '',
+    name: '',
+    nickname: ''
   });
   const [comment, setComment] = useState({
     content: '',
@@ -35,12 +35,6 @@ export default function App() {
       window.sessionStorage.setItem('email', res.data.data.userinfo.email)
       window.sessionStorage.setItem('name', res.data.data.userinfo.name)
       window.sessionStorage.setItem('nickname', res.data.data.userinfo.nickname)
-      setUserinfo({
-        id: window.sessionStorage.getItem('id'),
-        email: window.sessionStorage.getItem('email'),
-        name: window.sessionStorage.getItem('name'),
-        nickname: window.sessionStorage.getItem('nickname')
-      })
     })
   };
   
@@ -49,9 +43,21 @@ export default function App() {
     history.push("/")
   };
 
+  const handleUserinfo = () => {
+    setUserinfo({
+      id: window.sessionStorage.getItem('id'),
+      email: window.sessionStorage.getItem('email'),
+      name: window.sessionStorage.getItem('name'),
+      nickname: window.sessionStorage.getItem('nickname')
+    }, () => console.log(userinfo))
+  }
+
   const handleLogout = () => {
-    axios.post('https://localhost:4000/signout').then((res) => {
-      setUserinfo(null);
+    axios.post('https://localhost:4000/logout').then((res) => {
+      window.sessionStorage.setItem('id', '')
+      window.sessionStorage.setItem('email', '')
+      window.sessionStorage.setItem('name', '')
+      window.sessionStorage.setItem('nickname', '')
       setIsLogin(false);
       history.push('/');
     });
@@ -93,9 +99,9 @@ export default function App() {
   }, [page])
 
   useEffect(() => {
-    isAuthenticated();
-  }, []); 
-  
+    handleUserinfo()
+  }, [window.sessionStorage.getItem('id')])
+
   return (
     <div>
       <Navbar 
@@ -103,7 +109,9 @@ export default function App() {
         setMovieFilter={setMovieFilter}
         handleSearch={handleSearch}
         movieapi={movieapi}
+        setIsLogin={setIsLogin}
         isLogin={isLogin}
+        handleLogout={handleLogout}
       />
       <Switch>
         <Route exact path="/">
@@ -121,12 +129,22 @@ export default function App() {
         <Route path="/login">
           <Login
             isLogin={isLogin}
+            setIsLogin={setIsLogin}
             handleResposeSuccess={handleResponseSuccess}
           >
           </Login>
         </Route>
         <Route path="/search">
-          <Search></Search>
+          <Search
+            movieapi={movieapi}
+            setSelectgenre={setSelectgenre}
+            selectgenre={selectgenre}
+            setPage={setPage}
+            page={page}
+            comment={comment}
+            setComment={setComment}
+            userinfo={userinfo}
+          ></Search>
         </Route>
         <Route path="/signup">
           <Signup

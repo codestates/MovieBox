@@ -7,10 +7,11 @@ import SearchModal from './SearchModal';
 
 
 
-const Navbar = ({ movieFilter, setMovieFilter, handleSearch, isLogin }) => {
+const Navbar = ({ movieFilter, setMovieFilter, handleSearch, isLogin, handleLogout }) => {
     
     const [searchOpen, setSearchOpen] = useState(false);
     const openSearch = () => setSearchOpen(!searchOpen);
+
  
 return (
   <div className="navbar">
@@ -25,7 +26,7 @@ return (
         </nav> : <nav>
             <a onClick={openSearch}>Search</a>
             <a href="/profile">Profile</a>
-            <a href="/login">Logout</a>
+            <a onClick={handleLogout}>Logout</a>
         </nav>
         }
         {

@@ -13,7 +13,7 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
       userId: userinfo.id
     })
   }
-  // console.log(getComment)
+  
   const handleUploadComment = () => {
     if (userinfo.id) {
       axios.post('https://localhost:4000/upload', {

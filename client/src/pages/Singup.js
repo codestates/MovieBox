@@ -18,6 +18,7 @@ export default function Signup () {
   const [errormessage2, setErrormessage2] = useState('')
   const handleInputValue = (key) => (e) => {
     setUserinfo({ ...userinfo, [key]: e.target.value });
+    validate()
   }
   const validate = () => {
     if (!validateEmail(userinfo.email) || userinfo.email.length === 0) {
@@ -35,8 +36,7 @@ export default function Signup () {
     }
   }
   const handleClickSignup = () => {
-    validate()
-    if (!(userinfo.email==="") && !(userinfo.name==="") && !(userinfo.password==="") && !(userinfo.confirmPassword==="") && !(userinfo.nickname==="")) {
+    if (errormessage==="" && !(userinfo.email==="") && !(userinfo.name==="") && !(userinfo.password==="") && !(userinfo.confirmPassword==="") && !(userinfo.nickname==="")) {
       axios.post('https://localhost:4000/signup', {
         email: userinfo.email,
         password: userinfo.password,

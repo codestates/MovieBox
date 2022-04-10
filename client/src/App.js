@@ -157,10 +157,13 @@ export default function App() {
             userinfo={userinfo}
             userimage={userimage}
             setUserimage={setUserimage}
+            handleLogout={handleLogout}
           ></Profile>
         </Route>
         <Route path="/userupdate">
-          <Userupdate></Userupdate>
+          <Userupdate
+            handleLogout={handleLogout}
+          ></Userupdate>
         </Route>
       </Switch>
     </div>

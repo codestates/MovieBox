@@ -2,7 +2,6 @@ const { User } = require('../../models');
 
 module.exports = async (req, res) => {
   const data = req.body
-  console.log(data)
   const userimage = await User.update({
     image : data.image
   }, {

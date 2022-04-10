@@ -9,5 +9,7 @@ module.exports = {
   content : require('./comment/content'),
   userimage : require('./users/userimage'),
   getimage : require('./users/getimage'),
-  usercomment : require('./comment/usercomment')
+  usercomment : require('./comment/usercomment'),
+  userupdate : require('./users/userupdate'),
+  deleteuser : require('./users/deleteuser')
 }

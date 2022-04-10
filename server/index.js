@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: ['https://localhost:3000', 'https://openapi.naver.com'],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT' ,'OPTIONS']
+    methods: ['GET', 'POST', 'PUT' ,'OPTIONS', 'DELETE']
   })
 );
 app.use(cookieParser());
@@ -32,6 +32,8 @@ app.get('/content', controllers.content)
 app.put('/userimage', controllers.userimage)
 app.get('/getimage', controllers.getimage)
 app.get('/usercomment', controllers.usercomment)
+app.put('/userupdate', controllers.userupdate)
+app.delete('/deleteuser', controllers.deleteuser)
 
 app.use(express.static("public"));
 const storage = multer.diskStorage({

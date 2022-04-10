@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Profile = ({ userinfo, userimage, setUserimage }) => {
+const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
 
   const [uploadimage, setUploadimage] = useState(userimage)
   const [usercomment, setUsercomment] = useState([{
@@ -37,6 +37,20 @@ const Profile = ({ userinfo, userimage, setUserimage }) => {
     })
   };
 
+  const deleteUser = () => {
+    if (window.confirm('정말로 삭제하시겠습니까?')) {
+      axios.delete('https://localhost:4000/deleteuser', {
+        params : {
+          query: window.sessionStorage.getItem('id')
+        }
+      }).then(res => {
+        handleLogout()
+      })
+    } else {
+      console.log('취소')
+    }
+  }
+
   useEffect(() => {
     axios.get('https://localhost:4000/getimage', {
       params: {
@@ -68,10 +82,10 @@ const Profile = ({ userinfo, userimage, setUserimage }) => {
             </div>
           </div>
           <div className="change_userimage">
-            <button>회원정보 변경</button>
+            <a href="/userupdate">회원정보 변경</a>
           </div>
           <div className="withdraw">
-            <button>회원탈퇴</button>
+            <button onClick={deleteUser}>회원탈퇴</button>
           </div>
         </div>
       </span>

@@ -1,20 +1,12 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import Pagination from "react-js-pagination"
 import MovieModal from '../components/MovieModal'
-import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
-import jsonData from '../components/item.json'
-import MovieCard from '../components/MovieCard'
-import { Row, Col } from 'antd';
 import '../App.css'
 
 const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, userinfo }) => {
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [userdata, setUserdata] = useState({
-    nickname: '',
-    image: '',
-  });
   const [getComment, setGetComment] = useState(
     [{
       User: {nickname : ''},

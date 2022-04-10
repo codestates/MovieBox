@@ -3,4 +3,5 @@
 /build
 cert.pem
 key.pem
+/migrations
 .DS_Store

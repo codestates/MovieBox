@@ -6,9 +6,11 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 const axios = require('axios')
+const multer = require('multer')
 const { sequelize } = require("./models");
 
 const controllers = require('./controllers');
+const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,17 +18,38 @@ app.use(
   cors({
     origin: ['https://localhost:3000', 'https://openapi.naver.com'],
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS']
+    methods: ['GET', 'POST', 'PUT' ,'OPTIONS']
   })
 );
 app.use(cookieParser());
 app.get('/',);
 app.post('/signup', controllers.signup);
 app.post('/login', controllers.login);
+app.post('/logout', controllers.logout)
 app.get('/auth', controllers.auth);
 app.post('/upload', controllers.upload)
 app.get('/content', controllers.content)
-app.get('/profile', )
+app.put('/userimage', controllers.userimage)
+app.get('/getimage', controllers.getimage)
+app.get('/usercomment', controllers.usercomment)
+
+app.use(express.static("public"));
+const storage = multer.diskStorage({
+  destination: "../client/src/public/img",
+  filename: function(req, file, cb) {
+    cb(null, "imgfile" + Date.now() + path.extname(file.originalname));
+  }
+})
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1000000 }
+})
+
+app.post("/imageUpload", upload.single("file"), function(req, res, next) {
+  res.send({
+    fileName: req.file.filename
+  });
+});
 
 app.get('/api/search', (req, res) => {
   const searchKeyword = req.query.query[0]

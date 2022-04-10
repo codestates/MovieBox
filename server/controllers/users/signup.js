@@ -11,7 +11,9 @@ module.exports = async (req, res) => {
       email: req.body.email,
       name: req.body.name,
       password: req.body.password,
-      nickname: req.body.nickname
+      nickname: req.body.nickname,
+      image: 'default.png',
+      introduce: ''
     }
   })
   const accessToken = createAccessToken(userinfo.dataValues.password)

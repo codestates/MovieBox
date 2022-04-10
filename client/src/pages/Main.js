@@ -1,16 +1,22 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import Pagination from "react-js-pagination"
-import MovieModal from '../components/MovieModal'
 import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
 import jsonData from '../components/item.json'
-import MovieCard from '../components/MovieCard'
 
 import '../App.css'
 
-const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) => {
+const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [page, setPage] = useState(1)
+  const [moviedata, setMoviedata] = useState({
+    title: '',
+    image: '',
+    director: '',
+    pubDate: '',
+    userRating: ''
+  });
   const [getComment, setGetComment] = useState(
     [{
       content: '',
@@ -22,7 +28,15 @@ const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) 
       user_rating: null
     }]
   )
-
+  const handleMovieData = (data) => {
+    setMoviedata({
+      title: data.title,
+      image: data.image,
+      director: data.director,
+      pubDate: data.pubDate,
+    })
+  }
+  console.log(jsonData.items)
   const handlePageChange = (page) => { 
     setPage(page); 
   };
@@ -42,14 +56,11 @@ const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) 
       </div>
       <React.Fragment>
       <div>
-         
-          {jsonData ? jsonData.items.slice(page-1,page+13).map((item) => 
-          <span onClick = {() => handleMovieData(item)}>
-          <img onClick={openModal} className="movieImage" src={item.image}></img>
-          </span>): null}
-            
-        
-        </div>
+        {jsonData.items.slice(page-1,page+13).map((item) =>
+        <span onClick = {() => handleMovieData(item)}>
+        <img onClick={openModal} className="movieImage" src={item.image}></img>
+        </span>)}  
+      </div>
       </React.Fragment>
       <div className="Pagination">
         <ul>

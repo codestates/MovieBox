@@ -11,6 +11,7 @@ import Userupdate from './pages/Userupdate'
 import axios from 'axios'
 
 export default function App() {
+  const [userimage, setUserimage] = useState('default.png')
   const [page, setPage] = useState(1)
   const [isLogin, setIsLogin] = useState(Boolean(window.sessionStorage.getItem('id')));
   const [selectgenre, setSelectgenre] = useState('0')
@@ -152,7 +153,11 @@ export default function App() {
           ></Signup>
         </Route>
         <Route path="/profile" >
-          <Profile></Profile>
+          <Profile
+            userinfo={userinfo}
+            userimage={userimage}
+            setUserimage={setUserimage}
+          ></Profile>
         </Route>
         <Route path="/userupdate">
           <Userupdate></Userupdate>

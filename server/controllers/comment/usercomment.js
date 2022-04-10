@@ -2,17 +2,17 @@ const { User } = require('../../models')
 const { Comment } = require('../../models');
 
 module.exports = async (req, res) => {
-  const movie = req.query.query.replace(/<b>/gi,"").replace(/<\/b>/gi,"")
+  const userId = req.query.query
   const content = await Comment.findAll({
     where : {
-      movie_id : movie
+      user_id : userId
     },
     include: {
       model: User,
-      attributes: ['nickname', 'image']
+      attributes: ['nickname']
     }
   })
-  if (!movie) {
+  if (!userId) {
     res.status(403).send('not exist data')
   } else {
     res.status(201).send(content.map(el => el.dataValues))

@@ -2,10 +2,10 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn("comments", "user_id", {
+    await queryInterface.addColumn("Comments", "user_id", {
       type: Sequelize.INTEGER,
     });
-    await queryInterface.addConstraint("comments", {
+    await queryInterface.addConstraint("Comments", {
       fields: ["user_id"],
       type: "foreign key",
       name: "users_comments_id_fk",
@@ -20,6 +20,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("comments", "user_id");
+    await queryInterface.removeColumn("Comments", "user_id");
   },
 };

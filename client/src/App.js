@@ -120,7 +120,7 @@ export default function App() {
             setSelectgenre={setSelectgenre}
             selectgenre={selectgenre}
             setPage={setPage}
-            page={page}
+            // page={page}
             comment={comment}
             setComment={setComment}
             userinfo={userinfo}

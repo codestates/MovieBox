@@ -5,7 +5,7 @@ import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
 import jsonData from '../components/item.json'
 import MovieCard from '../components/MovieCard'
-import { Row, Col } from 'antd';
+
 import '../App.css'
 
 const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) => {
@@ -26,7 +26,7 @@ const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) 
   const handlePageChange = (page) => { 
     setPage(page); 
   };
-
+ 
   const openModal = () => {
     setModalOpen(true);
   };
@@ -42,15 +42,13 @@ const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) 
       </div>
       <React.Fragment>
       <div>
-      <Row>
-          {jsonData.items.map((item) => {
-            return (
-              <Col xs={24} sm={12} md={6} lg={4} xl={4}>
-                <MovieCard item={item}></MovieCard>;
-              </Col>
-            );
-          })}
-        </Row>
+         
+          {jsonData ? jsonData.items.slice(page-1,page+13).map((item) => 
+          <span onClick = {() => handleMovieData(item)}>
+          <img onClick={openModal} className="movieImage" src={item.image}></img>
+          </span>): null}
+            
+        
         </div>
       </React.Fragment>
       <div className="Pagination">
@@ -58,9 +56,9 @@ const Main = ({ setSelectgenre, setPage, page, comment, setComment, userinfo }) 
           <li>
             <Pagination
               activePage={page}
-              itemsCountPerPage={20}
-              totalItemsCount={1000}
-              pageRangeDisplayed={10}
+              itemsCountPerPage={1}
+              totalItemsCount={66}
+              pageRangeDisplayed={15}
               prevPageText={"<"}
               nextPageText={">"}
               onChange={handlePageChange}

@@ -31,18 +31,25 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
     <div className={open ? 'openModal modal' : 'modal'}>
     {open ? (
       <section>
-        <header>
+        <header className="title">
           {moviedata.title.replace(/<b>/gi,"").replace(/<\/b>/gi,"")}
           <button className="close" onClick={close}>
             &times;
           </button>
         </header>
-        <main>
-          <div>
+        <main className="movieinfo">
+        <div>
             <img src={moviedata.image}></img>
-            <div>{moviedata.director.replace(/\|/g,'')}</div>
-            <div>{moviedata.pubDate}</div>
           </div>
+            <p>
+              <span className="info_num">감독 : {moviedata.director.replace(/\|/g,'')}</span>
+            </p>
+            <p>
+              <span className="info_num">개봉 날짜 : {moviedata.pubDate}</span>
+            </p>
+            <p>
+              <sapn className="info_num">평점 : {moviedata.userRating}</sapn>
+            </p>
 
           {getComment.map(el => <div>
             <div>{el.updatedAt}</div>
@@ -51,10 +58,10 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
             </div>)}
           <div>
             <span>
-              <input type="content" onChange={handleInputValue("content")} ></input>
+            <input className="modal_input" type="content" onChange={handleInputValue("content")} ></input>
             </span>
             <span>
-              <button onClick={handleUploadComment} >submit</button>
+              <button className="modal_button" onClick={handleUploadComment} >submit</button>
             </span>
           </div>
         </main>

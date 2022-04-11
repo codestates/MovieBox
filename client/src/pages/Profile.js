@@ -70,22 +70,30 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
 
   return (
     <div>
-      <span>
+      <span className="profile">
+        <div className="profile_tab">
+          <div className="intput-div">
         <img src={require(`../public/img/${uploadimage}`)}  className="profile_image" style={{ margin: "auto" }}></img>
-        <span className="profile_nickname">{userinfo.nickname}</span>
+        <span className="profile_label">닉네임 : {userinfo.nickname}</span>
+        
         <div>
           <div className="introduce"></div>
           <div className="change_userinfo"><input onChange={saveFileImage} type="file" accept="image/*" />
             <div>
               <button onClick={uploadImage}>업로드</button>
               <button onClick={deleteFileImage}>삭제</button>
-            </div>
+                </div>
+              </div>
+            
           </div>
+
           <div className="change_userimage">
             <a href="/userupdate">회원정보 변경</a>
           </div>
+
           <div className="withdraw">
             <button onClick={deleteUser}>회원탈퇴</button>
+          </div>
           </div>
         </div>
       </span>

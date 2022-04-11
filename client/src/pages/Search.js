@@ -43,6 +43,7 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
       image: data.image,
       director: data.director,
       pubDate: data.pubDate,
+      userRating: data.userRating
     })
   }
   const openModal = () => {
@@ -80,7 +81,7 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
       </div>
       <div>
         {movieapi ? movieapi.map(el => <span onClick={() => handleMovieData(el)}>
-          <img onClick={openModal} className="movieImage" src={el.image}></img>
+          <img onClick={openModal} className="poster" src={el.image}></img>
         </span>): null}
       </div>
       <MovieModal 

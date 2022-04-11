@@ -1,0 +1,7 @@
+.env
+/node_modules
+/build
+cert.pem
+key.pem
+/migrations
+.DS_Store

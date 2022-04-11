@@ -2,14 +2,605 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
-/* .home,
-.login,
-.sign-up {
+.logo {
+  margin: 12px;
+}
+
+.navbar {
   display: flex;
-  height: 90vh;
+  justify-content: space-between;
+  background-color: black;
+  padding: 8px 12px;
+}
+
+.home_button {
+  margin-right: auto;
+}
+
+nav {
+  background-color: black;
+  height: 50px;
+  padding: 20px;
+  display: block;
+  width: 100%;
+}
+
+nav a {
+  position: relative;
+  width: 33.333%;
+  display: table-cell;
+  text-align: center;
+  color: #949494;
+  text-decoration: none;
+  justify-content: space-evenly;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: 0.2s ease color;
+}
+
+nav a:before,
+nav a:after {
+  content: "";
+  justify-content: space-evenly;
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s ease transform;
+}
+
+nav a:before {
+  top: 0;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+  justify-content: space-evenly;
+}
+
+nav a:after {
+  top: 5px;
+  left: 18px;
+  width: 4px;
+  height: 4px;
+}
+
+nav a:nth-child(1):before {
+  background-color: yellow;
+}
+
+nav a:nth-child(1):after {
+  background-color: red;
+}
+
+nav a:nth-child(2):before {
+  background-color: #00e2ff;
+}
+
+nav a:nth-child(2):after {
+  background-color: #89ff00;
+}
+
+nav a:nth-child(3):before {
+  background-color: purple;
+}
+
+nav a:nth-child(3):after {
+  background-color: palevioletred;
+}
+
+#indicator {
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.2s ease left;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a:hover:before,
+nav a:hover:after {
+  transform: scale(1);
+}
+
+nav a:nth-child(1):hover ~ #indicator {
+  background: linear-gradient(130deg, yellow, red);
+}
+
+nav a:nth-child(2):hover ~ #indicator {
+  left: 34%;
+  background: linear-gradient(130deg, #00e2ff, #89ff00);
+}
+
+nav a:nth-child(3):hover ~ #indicator {
+  left: 70%;
+  background: linear-gradient(130deg, purple, palevioletred);
+}
+
+.search_modal {
+  width: 100%;
+  margin: 10px;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.search_head {
+  width: 100%;
+  height: 40px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
-} */
+  background-color: white;
+}
+
+.search_head_title {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+
+.search_body {
+  width: 100%;
+  background-color: #ffffff;
+  color: black;
+}
+
+.search_body_contentbox {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 38px;
+  font-style: normal;
+  color: white;
+}
+
+.signup {
+  text-align: center;
+  background-color: black;
+  margin: 10% auto;
+}
+
+.signup div {
+  position: relative;
+  text-align: center;
+  margin: 15px;
+}
+.signup button {
+  width: 40%;
+  height: 45px;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.signup input {
+  border: 1px solid rgb(211, 211, 211);
+  width: 40%;
+  height: 45px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  background-color: rgb(250, 250, 250);
+}
+
+.signup input::-webkit-input-placeholder {
+  text-align: center;
+}
+.signup input:focus::-webkit-input-placeholder {
+  text-align: center;
+  color: transparent;
+}
+.signup input::-ms-input-placeholder {
+  text-align: center;
+}
+.signup input:focus::-ms-input-placeholder {
+  text-align: center;
+  color: transparent;
+}
+
+.singup_font_white {
+  color: white;
+}
+
+.errormessage {
+  color: red;
+}
+
+.login {
+  text-align: center;
+  background-color: black;
+  margin: 10% auto;
+}
+
+.login div {
+  position: relative;
+  text-align: center;
+  margin: 15px;
+}
+
+.login button {
+  width: 40%;
+  height: 45px;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.login input {
+  border: 1px solid rgb(211, 211, 211);
+  width: 40%;
+  height: 45px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  background-color: rgb(250, 250, 250);
+}
+
+.login input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.login input:focus::-webkit-input-placeholder {
+  text-align: center;
+  color: transparent;
+}
+
+.login input::-ms-input-placeholder {
+  text-align: center;
+}
+
+.login_font_white {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .signup {
+    width: 100%;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+  .nav {
+    width: 100%;
+  }
+  .logo {
+    width: 100%;
+  }
+
+  .home_button {
+    width: 100%;
+  }
+
+  .search_modal {
+    width: 100%;
+  }
+  .search_head_title {
+    width: 100%;
+  }
+  .search_body {
+    width: 100%;
+  }
+  .search_body_contentbox {
+    width: 100%;
+  }
+}
+
+.movieTitle {
+  color: black;
+}
+.movieImage {
+  margin: 10px;
+}
+
+.movieinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+}
+
+.info_num {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.sort {
+  float: right;
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.pagination li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+ul.pagination li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+ul.pagination li:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+ul.pagination li a {
+  text-decoration: none;
+  color: #337ab7;
+  font-size: 1rem;
+}
+
+ul.pagination li.active a {
+  color: white;
+}
+
+ul.pagination li.active {
+  background-color: #337ab7;
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+  color: blue;
+}
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: #337ab7;
+}
+
+.modal {
+  width: 50%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
+}
+
+.modal_input {
+  background-color: white;
+  width: 50%;
+  height: 100px;
+}
+
+.modal button {
+  outline: none;
+  cursor: pointer;
+  border: 20px;
+  padding-left: 20px;
+  color: white;
+}
+
+.modal > section {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+.modal > section > header {
+  position: relative;
+  padding: 16px 64px 16px 16px;
+  background-color: #f1f1f1;
+  font-weight: 700;
+  text-align: center;
+  font-size: 30px;
+  font-style: normal;
+  color: white;
+  background-color: black;
+}
+.modal > section > header button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background-color: transparent;
+}
+.modal > section > main {
+  height: 58vh;
+  padding: 16px;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  color: white;
+}
+.modal > section > footer {
+  padding: 12px 16px;
+  text-align: right;
+}
+.modal > section > footer button {
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #6c757d;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-bg-show 0.3s;
+}
+
+.poster {
+  max-width: 100%;
+  max-height: 290px;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-left: 18px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.poster::-webkit-scrollbar {
+  display: none;
+}
+
+.sort {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+}
+
+.select {
+  padding: 5px;
+  border: 0.5px solid white;
+  border-radius: 4px;
+  color: gray;
+  background-color: black;
+  -webkit-overflow-scrolling: none;
+}
+
+.sort span {
+  margin-right: 10px;
+}
+
+.poster:hover {
+  transform: scale(1.12);
+  transition: 0.4s;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  top: 0px;
+  right: 20px;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.profile_tab {
+  border: 0.5px solid #4b4a54;
+  border-radius: 10px;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  color: white;
+  padding-left: 30px;
+}
+
+.profile_label {
+  margin-right: auto;
+  font-size: 20px;
+}
+
+.profile_image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.change_userinfo {
+  margin-right: 100px;
+  font-size: 20px;
+}
+
+.input-div {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  padding-left: 0;
+  border: 1px solid rgb(211, 211, 211);
+}
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.video {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 30px;
+  background-color: black;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 33px #999;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-bottom: 56.25%;
+}
+
+iframe {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

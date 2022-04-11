@@ -1,0 +1,16 @@
+const { User } = require('../../models');
+
+module.exports = async (req, res) => {
+  const data = req.body
+  const userimage = await User.update({
+    image : data.image
+  }, {
+    where : { id : data.id }
+  })
+  
+  if (!userimage) {
+    res.status(404).send('not change image')
+  } else {
+    res.status(201).send({message: 'ok'})
+  }
+}

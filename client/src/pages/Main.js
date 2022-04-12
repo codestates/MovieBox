@@ -3,6 +3,7 @@ import Pagination from "react-js-pagination"
 import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
 import jsonData from '../components/item.json'
+import MovieModal from '../components/MovieModal'
 
 import '../App.css'
 
@@ -19,13 +20,14 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
   });
   const [getComment, setGetComment] = useState(
     [{
+      User: {nickname : ''},
       content: '',
       createdAt: '',
-      id: 32,
+      id: '',
       movie_id: '',
       updatedAt: '',
-      user_id: 1,
-      user_rating: null
+      user_id: '',
+      user_rating: ''
     }]
   )
   const handleMovieData = (data) => {
@@ -34,6 +36,7 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
       image: data.image,
       director: data.director,
       pubDate: data.pubDate,
+      userRating: ''
     })
   }
   console.log(jsonData.items)
@@ -54,14 +57,25 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
       <div>
       <MovieTrailer />
       </div>
-      <React.Fragment>
+      
       <div>
         {jsonData.items.slice(page-1,page+13).map((item) =>
         <span onClick = {() => handleMovieData(item)}>
         <img onClick={openModal} className="movieImage" src={item.image}></img>
         </span>)}  
       </div>
-      </React.Fragment>
+      <MovieModal 
+        open={modalOpen}
+        close={closeModal}
+        moviedata={moviedata}
+        comment={comment}
+        setComment={setComment}
+        userinfo={userinfo}
+        getComment={getComment}
+        handleMovieData={handleMovieData}
+        header="Modal heading">
+      </MovieModal>
+      
       <div className="Pagination">
         <ul>
           <li>

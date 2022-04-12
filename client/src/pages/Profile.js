@@ -76,37 +76,41 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
         <img src={require(`../public/img/${uploadimage}`)}  className="profile_image" style={{ margin: "auto" }}></img>
         <span className="profile_label">닉네임 : {userinfo.nickname}</span>
         
-        <div>
+        
           <div className="introduce"></div>
           <div className="change_userinfo"><input onChange={saveFileImage} type="file" accept="image/*" />
             <div>
-              <button onClick={uploadImage}>업로드</button>
-              <button onClick={deleteFileImage}>삭제</button>
+              <button className="profile_image_button" onClick={uploadImage}>업로드</button>
+              <button className="profile_image_button" onClick={deleteFileImage}>삭제</button>
                 </div>
-              </div>
+              
             
-          </div>
+          
 
-          <div className="change_userimage">
-            <a href="/userupdate">회원정보 변경</a>
-          </div>
+            <div>
+            <a href="/userupdate">
+              <button className="profile_button">회원정보 변경</button>
+              </a>
+            </div>
 
           <div className="withdraw">
-            <button onClick={deleteUser}>회원탈퇴</button>
-          </div>
+            <button className="profile_button" onClick={deleteUser}>회원탈퇴</button>
+              </div>
+              
+            </div>
           </div>
         </div>
-      </span>
+      {/* </span> */}
+      <div className="comment">
         {usercomment.map(el => 
-        <ul className="user_comment">
+        <span className="user_comment">
           <span>{el.movie_id}</span>
           <span>{el.updatedAt}</span>
           <div>{el.content}</div>
-        </ul>
+        </span>
         )}
-      <span>
-
-      </span>
+        </div>
+        </span>
     </div>
   )
 

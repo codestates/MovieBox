@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import "../App.css"
 
 
 const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
-    const [searchInput, setSearchInput] = useState('')
     const history = useHistory();
     const handleInputValue = (key) => (e) => {
         setMovieFilter({ ...movieFilter, [key]: e.target.value });
@@ -28,6 +27,7 @@ const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
                 <input type='searchKeyword' className="search_body_contentbox"
                     onChange={handleInputValue('searchKeyword')}
                     onKeyPress={onKeyPress}
+                    placeholder="영화 제목을 검색하세요."
                 >
                 </input>
             </div>

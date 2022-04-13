@@ -3,15 +3,13 @@ const { createAccessToken } = require('../tokenFunctions');
 
 module.exports = async (req, res) => {
   const data = req.body
-  console.log(data)
+  const accessToken = createAccessToken(data.password)
   const userupdate = await User.update({
-    password : data.password,
+    password : accessToken,
     nickname : data.nickname
   }, {
     where : { id : data.id }
   })
-  console.log(userupdate)
-  const accessToken = createAccessToken(data.password)
   if (!userupdate) {
     res.status(404).send('not change image')
   } else {

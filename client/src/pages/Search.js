@@ -9,7 +9,7 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
   const [modalOpen, setModalOpen] = useState(false);
   const [getComment, setGetComment] = useState(
     [{
-      User: {nickname : ''},
+      User: {nickname : '', image: ''},
       content: '',
       createdAt: '',
       id: '',
@@ -53,8 +53,12 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
     setModalOpen(false);
   };
 
+  const handleImgError = (e) => {
+    e.target.src = require("../public/img/다운로드.jpeg");
+  }
+
   useEffect (() => {
-      axios.get('https://localhost:4000/content', {
+      axios.get('http://ec2-184-73-95-81.compute-1.amazonaws.com/content', {
       params: {
         query: moviedata.title
       }
@@ -70,7 +74,7 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
       <div>
         <span className="sort">
           <span>sort</span>
-          <select
+          <select className="select"
             onChange={(value) => {
               setSelectgenre(value.target.value)
             }}
@@ -79,10 +83,12 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
           </select>
         </span>
       </div>
-      <div>
-        {movieapi ? movieapi.map(el => <span onClick={() => handleMovieData(el)}>
-          <img onClick={openModal} className="poster" src={el.image}></img>
-        </span>): null}
+      <div className="search_wrapper">
+        <div>
+          {movieapi ? movieapi.map(el => <span onClick={() => handleMovieData(el)}>
+            <img onClick={openModal} className="poster" src={el.image}  onError={handleImgError}></img>
+          </span>): null}
+        </div>
       </div>
       <MovieModal 
         open={modalOpen}
@@ -100,9 +106,9 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
           <li>
             <Pagination
               activePage={page}
-              itemsCountPerPage={20}
+              itemsCountPerPage={10}
               totalItemsCount={1000}
-              pageRangeDisplayed={10}
+              pageRangeDisplayed={5}
               prevPageText={"<"}
               nextPageText={">"}
               onChange={handlePageChange}

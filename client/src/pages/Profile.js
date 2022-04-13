@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import S3Upload from '../components/S3Upload'
 
 const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
 
@@ -10,28 +11,9 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
     updatedAt: ''
   }])
 
-  const saveFileImage = (e) => {
-    const formData = new FormData();
-    formData.append('file', e.target.files[0])
-    console.log(formData)
-    console.log(userimage)
-    axios.post('https://localhost:4000/imageUpload', formData)
-    .then(res => {
-      console.log(res.data.fileName)
-      setUserimage(res.data.fileName)
-    })
-  }
-
-  const uploadImage = () => {
-    axios.put('https://localhost:4000/userimage', {
-      id: window.sessionStorage.getItem('id'),
-      image : userimage
-    })
-  }
-
   const deleteFileImage = () => {
     URL.revokeObjectURL(userimage);
-    axios.put('https://localhost:4000/userimage', {
+    axios.put('http://ec2-184-73-95-81.compute-1.amazonaws.com/userimage', {
       id: window.sessionStorage.getItem('id'),
       image : 'default.png'
     })
@@ -39,11 +21,12 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
 
   const deleteUser = () => {
     if (window.confirm('정말로 삭제하시겠습니까?')) {
-      axios.delete('https://localhost:4000/deleteuser', {
+      axios.delete('http://ec2-184-73-95-81.compute-1.amazonaws.com/deleteuser', {
         params : {
-          query: window.sessionStorage.getItem('id')
+          query : sessionStorage.getItem('id')
         }
-      }).then(res => {
+      })
+      .then(res => {
         handleLogout()
       })
     } else {
@@ -52,7 +35,7 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
   }
 
   useEffect(() => {
-    axios.get('https://localhost:4000/getimage', {
+    axios.get('http://ec2-184-73-95-81.compute-1.amazonaws.com/getimage', {
       params: {
         query: window.sessionStorage.getItem('id')
       }
@@ -60,53 +43,61 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
   })
 
   useEffect(() => {
-    axios.get('https://localhost:4000/usercomment', {
+    axios.get('http://ec2-184-73-95-81.compute-1.amazonaws.com/usercomment', {
       params: {
         query: window.sessionStorage.getItem('id')
       }
     }).then(res => setUsercomment(res.data))
   }, [])
-  
 
   return (
     <div>
       <span className="profile">
         <div className="profile_tab">
           <div className="intput-div">
-        <img src={require(`../public/img/${uploadimage}`)}  className="profile_image" style={{ margin: "auto" }}></img>
+        <img src={`https://moviebox-bucket.s3.ap-northeast-2.amazonaws.com/upload/${uploadimage}`}  className="profile_image" style={{ margin: "auto" }}></img>
         <span className="profile_label">닉네임 : {userinfo.nickname}</span>
         
-        <div>
+        
           <div className="introduce"></div>
-          <div className="change_userinfo"><input onChange={saveFileImage} type="file" accept="image/*" />
+          <div className="change_userinfo">
             <div>
-              <button onClick={uploadImage}>업로드</button>
-              <button onClick={deleteFileImage}>삭제</button>
+              <S3Upload 
+                setUserimage={setUserimage}
+                userimage={userimage}
+              />
+              <button className="profile_image_button" onClick={deleteFileImage}>프로필 사진 삭제</button>
                 </div>
-              </div>
-            
-          </div>
-
-          <div className="change_userimage">
-            <a href="/userupdate">회원정보 변경</a>
-          </div>
+            <div>
+            <a href="/userupdate">
+              <button className="profile_button">회원정보 변경</button>
+              </a>
+            </div>
 
           <div className="withdraw">
-            <button onClick={deleteUser}>회원탈퇴</button>
-          </div>
+            <button className="profile_button" onClick={deleteUser}>회원탈퇴</button>
+              </div>
+              
+            </div>
           </div>
         </div>
-      </span>
+      {/* </span> */}
+      <div className="comment">
         {usercomment.map(el => 
-        <ul className="user_comment">
-          <span>{el.movie_id}</span>
-          <span>{el.updatedAt}</span>
-          <div>{el.content}</div>
-        </ul>
+        <span className="user_comment">
+          <div className="teewt_uesrproflie">
+            <img src={`https://moviebox-bucket.s3.ap-northeast-2.amazonaws.com/upload/${uploadimage}`} />
+          </div>
+          <div className="user_content">
+            <span className="user_moviename">영화 제목 : {el.movie_id}</span>
+            <span className="user_updatedAt">{el.updatedAt.replace("T"," ").slice(0,19)}</span>
+          
+          <div className="user_content">{el.content}</div>
+          </div>
+        </span>
         )}
-      <span>
-
-      </span>
+        </div>
+        </span>
     </div>
   )
 

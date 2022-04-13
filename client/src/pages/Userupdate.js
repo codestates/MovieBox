@@ -31,7 +31,7 @@ export default function Userupdate ({ handleLogout }) {
   }
   const handleClickUpdate = () => {
     if (errormessage==='' && !(updateinfo.password==="") && !(updateinfo.confirmPassword==="") && !(updateinfo.nickname==="")) {
-      axios.put('https://localhost:4000/userupdate', {
+      axios.put('http://ec2-184-73-95-81.compute-1.amazonaws.com/userupdate', {
       id: window.sessionStorage.getItem('id'),
       password: updateinfo.password,
       nickname: updateinfo.nickname

@@ -9,7 +9,7 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
   const [modalOpen, setModalOpen] = useState(false);
   const [getComment, setGetComment] = useState(
     [{
-      User: {nickname : ''},
+      User: {nickname : '', image: ''},
       content: '',
       createdAt: '',
       id: '',
@@ -53,8 +53,12 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
     setModalOpen(false);
   };
 
+  const handleImgError = (e) => {
+    e.target.src = require("../public/img/다운로드.jpeg");
+  }
+
   useEffect (() => {
-      axios.get('https://localhost:4000/content', {
+      axios.get('http://ec2-184-73-95-81.compute-1.amazonaws.com/content', {
       params: {
         query: moviedata.title
       }
@@ -82,7 +86,7 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
       <div className="search_wrapper">
         <div>
           {movieapi ? movieapi.map(el => <span onClick={() => handleMovieData(el)}>
-            <img onClick={openModal} className="poster" src={el.image}></img>
+            <img onClick={openModal} className="poster" src={el.image}  onError={handleImgError}></img>
           </span>): null}
         </div>
       </div>

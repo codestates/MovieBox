@@ -1,7 +1,6 @@
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 import "../App.css"
 import axios from 'axios'
-import Profile from '../pages/Profile';
 
 const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, getComment }) => {
 
@@ -16,7 +15,7 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
   
   const handleUploadComment = () => {
     if (userinfo.id) {
-      axios.post('https://localhost:4000/upload', {
+      axios.post('http://ec2-184-73-95-81.compute-1.amazonaws.com/upload', {
         content: comment.content,
         movie_id: comment.movieId,
         user_id: comment.userId
@@ -38,7 +37,6 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
           </button>
         </header>
         <main>
-        {/* <div className="movie_info"> */}
         <span className="movie_content">
         <div className="movie_info2"> 
             <img className="poster" src={moviedata.image}></img>
@@ -52,11 +50,13 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
               
               </div>
               </span>  
-         
-          {/* </div> */}
+  
           <div className="modal_comment">
             <div className="usercomment">
           {getComment.map(el => <div>
+            <div className="teewt_uesrproflie">
+            <img src={`https://moviebox-bucket.s3.ap-northeast-2.amazonaws.com/upload/${el.User.image}`} />
+            </div>
             <span className="user_moviename">{el.User.nickname}</span>
             <span className="user_updatedAt">{el.updatedAt.replace("T"," ").slice(0,19)}</span>
             <div className="user_content">{el.content}</div>
@@ -73,11 +73,6 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
             </span>
           </div>
         </main>
-        {/* <footer className="close2">
-          <button onClick={close}>
-            close
-          </button>
-        </footer> */}
       </section>
     ) : null}
   </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../App.css'
 import axios from 'axios';
 
-
 axios.defaults.withCredentials = true;
 
 export default function Login ({ handleResposeSuccess, setIsLogin }) {
@@ -22,13 +21,17 @@ export default function Login ({ handleResposeSuccess, setIsLogin }) {
       setErrormessage('')
     }
     if (!errormessage) {
-      axios.post('https://localhost:4000/login',{
+      axios.post('http://ec2-184-73-95-81.compute-1.amazonaws.com/login',{
         email: userinfo.email,
         password: userinfo.password
       })
       .then(res => {
-        handleResposeSuccess(res.data)
+        sessionStorage.setItem('id', res.data.id);
+        sessionStorage.setItem('email', res.data.email);
+        sessionStorage.setItem('name', res.data.name);
+        sessionStorage.setItem('nickname', res.data.nickname)
         setIsLogin(true)
+        handleResposeSuccess()
       })
       .catch(error => setErrormessage2('비밀번호가 일치하지 않습니다'))
     }

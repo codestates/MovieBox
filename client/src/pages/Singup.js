@@ -37,7 +37,7 @@ export default function Signup () {
   }
   const handleClickSignup = () => {
     if (errormessage==="" && !(userinfo.email==="") && !(userinfo.name==="") && !(userinfo.password==="") && !(userinfo.confirmPassword==="") && !(userinfo.nickname==="")) {
-      axios.post('https://localhost:4000/signup', {
+      axios.post('http://ec2-184-73-95-81.compute-1.amazonaws.com/signup', {
         email: userinfo.email,
         password: userinfo.password,
         name: userinfo.name,

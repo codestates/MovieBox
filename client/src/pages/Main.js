@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Pagination from "react-js-pagination"
 import MovieTrailer from '../components/MovieTrailer'
 import axios from 'axios'
@@ -7,7 +7,7 @@ import MovieModal from '../components/MovieModal'
 
 import '../App.css'
 
-const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
+const Main = ({ comment, setComment, userinfo }) => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(1)
@@ -20,14 +20,14 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
   });
   const [getComment, setGetComment] = useState(
     [{
-      User: {nickname : ''},
+      User: {nickname: '', image: ''},
       content: '',
       createdAt: '',
-      id: '',
+      id: 32,
       movie_id: '',
       updatedAt: '',
-      user_id: '',
-      userRating: ''
+      user_id: 1,
+      user_rating: null
     }]
   )
   const handleMovieData = (data) => {
@@ -36,10 +36,8 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
       image: data.image,
       director: data.director,
       pubDate: data.pubDate,
-      userRating: data.userRating
     })
   }
-  console.log(jsonData.items)
   const handlePageChange = (page) => { 
     setPage(page); 
   };
@@ -50,7 +48,17 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
-  
+
+  useEffect (() => {
+    axios.get('http://ec2-184-73-95-81.compute-1.amazonaws.com/content', {
+    params: {
+      query: moviedata.title
+    }
+  })
+  .then((res) => {
+    setGetComment(res.data)
+    })
+  })
   
   return (
     <div>

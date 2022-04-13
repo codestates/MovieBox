@@ -29,36 +29,26 @@ export default function App() {
     userId: ''
   })
   const history = useHistory();
-  const isAuthenticated = () => {
-    axios.get('https://localhost:4000/auth')
-    .then(res => {
-      window.sessionStorage.setItem('id', res.data.data.userinfo.id)
-      window.sessionStorage.setItem('email', res.data.data.userinfo.email)
-      window.sessionStorage.setItem('name', res.data.data.userinfo.name)
-      window.sessionStorage.setItem('nickname', res.data.data.userinfo.nickname)
-    })
-  };
-  
+
   const handleResponseSuccess = (res) => {
-    isAuthenticated();
     history.push("/")
   };
 
   const handleUserinfo = () => {
     setUserinfo({
-      id: window.sessionStorage.getItem('id'),
-      email: window.sessionStorage.getItem('email'),
-      name: window.sessionStorage.getItem('name'),
-      nickname: window.sessionStorage.getItem('nickname')
+      id: sessionStorage.getItem('id'),
+      email: sessionStorage.getItem('email'),
+      name: sessionStorage.getItem('name'),
+      nickname: sessionStorage.getItem('nickname')
     }, () => console.log(userinfo))
   }
 
   const handleLogout = () => {
-    axios.post('https://localhost:4000/logout').then((res) => {
-      window.sessionStorage.setItem('id', '')
-      window.sessionStorage.setItem('email', '')
-      window.sessionStorage.setItem('name', '')
-      window.sessionStorage.setItem('nickname', '')
+    axios.post('http://ec2-184-73-95-81.compute-1.amazonaws.com/logout').then((res) => {
+      sessionStorage.setItem('id', '')
+      sessionStorage.setItem('email', '')
+      sessionStorage.setItem('name', '')
+      sessionStorage.setItem('nickname', '')
       setIsLogin(false);
       history.push('/');
     });
@@ -75,13 +65,14 @@ export default function App() {
         setSelectgenre('')
       } 
       else {
-        const data = await axios.get('https://localhost:4000/api/search', 
+        const data = await axios.get('http://ec2-184-73-95-81.compute-1.amazonaws.com/api/search', 
         {
           params: {
             query: [searchKeyword, searchGenre, page]
           }
         })
         const rating = data.data.items
+        console.log(rating)
         const sortData = rating.sort((a, b) => {
           return b.userRating - a.userRating
         })
@@ -91,6 +82,7 @@ export default function App() {
       console.log('error')
     }
   }
+  
   useEffect(() => {
     handleSearch()
   }, [selectgenre])
@@ -101,7 +93,7 @@ export default function App() {
 
   useEffect(() => {
     handleUserinfo()
-  }, [window.sessionStorage.getItem('id')])
+  }, [sessionStorage.getItem('id')])
 
   return (
     <div>
@@ -158,6 +150,8 @@ export default function App() {
             userimage={userimage}
             setUserimage={setUserimage}
             handleLogout={handleLogout}
+            handleResponseSuccess={handleResponseSuccess}
+            setIsLogin={setIsLogin}
           ></Profile>
         </Route>
         <Route path="/userupdate">

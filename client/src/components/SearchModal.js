@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import "../App.css"
 
 
 const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
-    const [searchInput, setSearchInput] = useState('')
     const history = useHistory();
     const handleInputValue = (key) => (e) => {
         setMovieFilter({ ...movieFilter, [key]: e.target.value });

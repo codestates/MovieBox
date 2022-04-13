@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import "../App.css"
 
-const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
+const Profile = ({ userinfo, userimage, setUserimage, handleLogout, }) => {
 
   const [uploadimage, setUploadimage] = useState(userimage)
   const [usercomment, setUsercomment] = useState([{
@@ -104,9 +105,15 @@ const Profile = ({ userinfo, userimage, setUserimage, handleLogout }) => {
       <div className="comment">
         {usercomment.map(el => 
         <span className="user_comment">
-          <span>{el.movie_id}</span>
-          <span>{el.updatedAt}</span>
-          <div>{el.content}</div>
+          <div className="teewt_uesrproflie">
+            <img src={require(`../public/img/${uploadimage}`)} />
+          </div>
+          <div className="user_content">
+            <span className="user_moviename">영화 제목 : {el.movie_id}</span>
+            <span className="user_updatedAt">{el.updatedAt.replace("T"," ").slice(0,19)}</span>
+          
+          <div className="user_content">{el.content}</div>
+          </div>
         </span>
         )}
         </div>

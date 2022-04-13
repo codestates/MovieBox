@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import "../App.css"
 import axios from 'axios'
-
+import Profile from '../pages/Profile';
 
 const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, getComment }) => {
 
@@ -37,39 +37,47 @@ const MovieModal = ({ open, close, moviedata, comment, setComment, userinfo, get
             &times;
           </button>
         </header>
-        <main className="movieinfo">
-        <div>
-            <img src={moviedata.image}></img>
-          </div>
-            <p>
-              <span className="info_num">감독 : {moviedata.director.replace(/\|/g,'')}</span>
-            </p>
-            <p>
-              <span className="info_num">개봉 날짜 : {moviedata.pubDate}</span>
-            </p>
-            <p>
-              <sapn className="info_num">평점 : {moviedata.userRating}</sapn>
-            </p>
-
+        <main>
+        {/* <div className="movie_info"> */}
+        <span className="movie_content">
+        <div className="movie_info2"> 
+            <img className="poster" src={moviedata.image}></img>
+        
+             
+              <div className="movie_info">감독 : {moviedata.director.replace(/\|/g,'')}</div>
+            
+              <div className="movie_info">개봉 날짜 : {moviedata.pubDate}</div>
+            
+              <div className="movie_info">평점 : {moviedata.userRating}</div>
+              
+              </div>
+              </span>  
+         
+          {/* </div> */}
+          <div className="modal_comment">
+            <div className="usercomment">
           {getComment.map(el => <div>
-            <div>{el.updatedAt}</div>
-            <div>{el.User.nickname}</div>
-            <div>{el.content}</div>
-            </div>)}
+            <span className="user_moviename">{el.User.nickname}</span>
+            <span className="user_updatedAt">{el.updatedAt.replace("T"," ").slice(0,19)}</span>
+            <div className="user_content">{el.content}</div>
+              </div>)}
+            </div>
+          </div>
+            
           <div>
-            <span>
-            <input className="modal_input" type="content" onChange={handleInputValue("content")} ></input>
-            </span>
+            <div className="modal_input_container">
+            <input className="modal_input" type="text" onChange={handleInputValue("content")} ></input>
+            </div>
             <span>
               <button className="modal_button" onClick={handleUploadComment} >submit</button>
             </span>
           </div>
         </main>
-        <footer>
-          <button className="close" onClick={close}>
+        {/* <footer className="close2">
+          <button onClick={close}>
             close
           </button>
-        </footer>
+        </footer> */}
       </section>
     ) : null}
   </div>

@@ -26,7 +26,8 @@
     "react-youtube": "^7.14.0",
     "reactstrap": "^9.0.1",
     "sass": "^1.50.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "util": "^0.12.4"
   },
   "browserslist": {
     "production": [

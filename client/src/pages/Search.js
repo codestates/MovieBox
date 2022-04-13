@@ -3,9 +3,9 @@ import Pagination from "react-js-pagination"
 import MovieModal from '../components/MovieModal'
 import axios from 'axios'
 import '../App.css'
-
+import LoadingIndicator from '../components/LoadingIndicator'
 const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, userinfo }) => {
-
+  const [isLoading, setIsLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [getComment, setGetComment] = useState(
     [{
@@ -67,7 +67,9 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
       setGetComment(res.data)
     })
   })
-
+  useEffect(() => { 
+    setTimeout(() => setIsLoading(false), 2000) }
+    , [])
   
   return (
     <div>
@@ -84,11 +86,12 @@ const Search = ({ movieapi, setSelectgenre, setPage, page, comment, setComment, 
         </span>
       </div>
       <div className="search_wrapper">
-        <div>
+        {isLoading === false 
+         ? (<div>
           {movieapi ? movieapi.map(el => <span onClick={() => handleMovieData(el)}>
             <img onClick={openModal} className="poster" src={el.image}  onError={handleImgError}></img>
           </span>): null}
-        </div>
+        </div>): <LoadingIndicator/> }
       </div>
       <MovieModal 
         open={modalOpen}

@@ -28,6 +28,7 @@ const SearchModal = ({ movieFilter, setMovieFilter, handleSearch }) => {
                 <input type='searchKeyword' className="search_body_contentbox"
                     onChange={handleInputValue('searchKeyword')}
                     onKeyPress={onKeyPress}
+                    placeholder="영화 제목을 검색하세요."
                 >
                 </input>
             </div>

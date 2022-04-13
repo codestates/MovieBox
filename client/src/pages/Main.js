@@ -27,7 +27,7 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
       movie_id: '',
       updatedAt: '',
       user_id: '',
-      user_rating: ''
+      userRating: ''
     }]
   )
   const handleMovieData = (data) => {
@@ -36,7 +36,7 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
       image: data.image,
       director: data.director,
       pubDate: data.pubDate,
-      userRating: ''
+      userRating: data.userRating
     })
   }
   console.log(jsonData.items)
@@ -58,10 +58,10 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
       <MovieTrailer />
       </div>
       
-      <div>
-        {jsonData.items.slice(page-1,page+13).map((item) =>
+      <div className="poster_wrapper">
+        {jsonData.items.slice((page-1)*10,(page-1)*10+12).map((item) =>
         <span onClick = {() => handleMovieData(item)}>
-        <img onClick={openModal} className="movieImage" src={item.image}></img>
+        <img onClick={openModal} className="poster" src={item.image}></img>
         </span>)}  
       </div>
       <MovieModal 
@@ -81,9 +81,9 @@ const Main = ({ setSelectgenre, comment, setComment, userinfo }) => {
           <li>
             <Pagination
               activePage={page}
-              itemsCountPerPage={1}
+              itemsCountPerPage={10}
               totalItemsCount={66}
-              pageRangeDisplayed={15}
+              pageRangeDisplayed={5}
               prevPageText={"<"}
               nextPageText={">"}
               onChange={handlePageChange}

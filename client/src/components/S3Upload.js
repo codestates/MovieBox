@@ -9,10 +9,10 @@ function S3Upload ({ setUserimage, userimage }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
 
-  const ACCESS_KEY = 'AKIASLLPFYJX2P2XRFMA';
-  const SECRET_ACCESS_KEY = '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';
-  const REGION = "ap-northeast-2";
-  const S3_BUCKET = 'moviebox-bucket';
+  const ACCESS_KEY = ;
+  const SECRET_ACCESS_KEY = ;
+  const REGION = ;
+  const S3_BUCKET = ;
 
   AWS.config.update({
     accessKeyId: ACCESS_KEY,
